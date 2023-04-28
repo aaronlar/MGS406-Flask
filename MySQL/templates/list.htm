@@ -1,24 +1,27 @@
-<!doctype html>
-<html>
- <body>
-  <table border = 1>
-   <thead>
-    <td>EmpID</td>
-    <td>EmpName</td>
-    <td>EmpGender</td>
-    <td>EmpPhone</td>
-    <td>EmpBDate</td>
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<h1>Employee Information</h1>
+
+<table class="table table-striped table-bordered">
+   <thead class="bg-success">
+      <td>EmpID</td>
+      <td>EmpName</td>
+      <td>EmpGender</td>
+      <td>EmpPhone</td>
+      <td>EmpBDate</td>
    </thead>
+
    {% for row in rows %}
-    <tr>
-     <td>{{row["EmpID"]}}</td>
-     <td>{{row["EmpName"]}}</td>
-     <td>{{row["EmpGender"]}}</td>
-     <td>{{row["EmpPhone"]}}</td>
-     <td>{{row["EmpBDate"]}}</td>
-    </tr>
+   <tr class="bg-info">
+      <td>{{row[0]}}</td>
+      <td>{{row[1]}}</td>
+      <td>{{row[2]}}</td>
+      <td> {{row[3]}}</td>
+      <td>{{row[4]}}</td>
+   </tr>
    {% endfor %}
-  </table>
-  <a href = "/">Go Back to Home Page</a>
- </body>
-</html>
+</table>
+<a href="/">Go Back to Home Page</a>
+{% endblock %}
+

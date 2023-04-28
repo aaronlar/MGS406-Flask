@@ -21,7 +21,7 @@ def addrec():
 			EmpBDate = request.form['EmpBDate']
 			with sql.connect(host="localhost", user="flask", password="ubuntu", database="Week12_DB") as con:
 				cur = con.cursor()
-				cmd = "INSERT INTO employee (EmpID, EmpName, EmpGender, EmpPhone, EmpBDate) VALUES ('{0}','{1}','{2}','{3}', '{4}')".format(EmpID, EmpName, EmpGender, EmpPhone, EmpBDate)
+				cmd = "INSERT INTO employees (EmpID, EmpName, EmpGender, EmpPhone, EmpBDate) VALUES ('{0}','{1}','{2}','{3}', '{4}')".format(EmpID, EmpName, EmpGender, EmpPhone, EmpBDate)
 				cur.execute(cmd)
 				con.commit()
 				msg = "Record successfully added"
@@ -29,7 +29,7 @@ def addrec():
 			con.rollback()
 			msg = "error in insert operation"
 		finally:
-			return render_template("result.htm",msg = msg)
+			return render_template("result.htm", msg = msg)
 			con.close()
 @app.route('/information')
 def list():
